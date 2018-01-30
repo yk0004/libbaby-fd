@@ -11,6 +11,7 @@ class ByList extends Component {
     this.props.getStatusRequest().then(()=> {
       console.log(this.props.match.params.id)
       this.props.getCommentRequest(this.props.match.params.id);
+      window.scrollTo(0, 0);
     })
   }
 

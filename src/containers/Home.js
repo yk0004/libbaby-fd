@@ -11,6 +11,7 @@ class Home extends Component {
   componentDidMount(){
     this.props.getStatusRequest();
     this.props.memoListRequest(true);
+    window.scrollTo(0, 0);
   }
 
   render() {

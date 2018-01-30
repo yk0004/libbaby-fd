@@ -12,6 +12,7 @@ class List extends Component {
   componentDidMount(){
     this.props.getStatusRequest();
     this.props.memoListRequest(false);
+    window.scrollTo(0, 0);
   }
 
   handleSearch = (keyword) => {

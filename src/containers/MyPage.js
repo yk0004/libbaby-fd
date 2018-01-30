@@ -11,6 +11,7 @@ class MyPage extends Component {
     this.props.getStatusRequest().then(()=>{
       this.props.memoListRequest(false, this.props.currentUser);
       this.props.getMyCommentRequest(this.props.currentUser);
+      window.scrollTo(0, 0);
     })
   }
 
