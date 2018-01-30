@@ -5,7 +5,7 @@ let server_url = process.env.REACT_APP_SERVER_URI;
 class Slider extends Component {
 
   render() {
-    const loginView = <a href=`${server_url}auth/facebook` className="login">Facebook Login</a>;
+    const loginView = <a href={`${server_url}auth/facebook`} className="login">Facebook Login</a>;
     // const writeView = <Link to="/memo" className="main_btn">물품요청</Link>;
     return (
       <div className="slider">
