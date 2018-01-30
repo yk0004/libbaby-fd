@@ -1,0 +1,123 @@
+
+.navbar {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(90deg,#495057,#adb5bd);
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.title {
+  line-height: 50px;
+  float: left;
+  margin-left: 3rem;
+  color: #fafafa;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.rightbar {
+  float: right;
+  display: flex;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+.menu {
+  line-height: 50px;
+  color: #fafafa;
+  margin-right: 2rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.menu:hover {
+  cursor: pointer;
+  font-weight: 900;
+}
+.login {
+  border: 2px solid white;
+  height: 30px;
+  width: 130px;
+  line-height: 30px;
+  text-align: center;
+  text-decoration: none;
+  color: #fafafa;
+}
+
+.login:hover {
+  background-color: white;
+  color: #30a1c1;
+  font-weight: 500;
+}
+
+.userView {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.userInfo {
+  border: 2px solid #fafafa;
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  height: 35px;
+  align-items: center;
+}
+
+.userInfo:hover {
+  cursor: pointer;
+}
+
+.userPicture {
+  width: 22px;
+  height: 22px;
+  border-radius: 30px;
+}
+
+.userName {
+  height: 35px;
+  line-height: 35px;
+  color: #fafafa;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.userMenuBar {
+  color: white;
+  padding-left: 5px;
+}
+
+.mypage {
+  text-align: center;
+  text-decoration: none;
+  color: #fafafa;
+}
+
+.logout {
+  text-align: center;
+  text-decoration: none;
+  color: #fafafa;
+}
+
+@media screen and (max-width: 430px) {
+  .title {
+    margin-left: 1rem;
+  }
+  .rightbar {
+    margin-right: 1rem;
+  }
+  .menu {
+    margin-right: 1rem;
+  }
+  .userInfo {
+    width: 50px;
+    font-size: 0.4rem;
+  }
+  .userName {
+    display: none;
+  }
+}

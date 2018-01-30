@@ -1,0 +1,19 @@
+.search {
+  position: relative;
+  top: -10px;
+  display: flex;
+  justify-content: center;
+  align-items:flex-end;
+  height: 150px;
+}
+
+.search_bar {
+  z-index: 0;
+  width: 30%;
+}
+
+@media screen and (max-width: 430px) {
+  .search_bar {
+    width: 60%;
+  }
+}

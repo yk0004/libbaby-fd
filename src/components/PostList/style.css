@@ -1,0 +1,17 @@
+
+.myPost {
+  width: 70%;
+  margin: 0 auto;
+  position: relative;
+  top: 20px;
+  background-color: #fff;
+  padding-bottom: 50px;
+
+}
+
+
+@media screen and (max-width: 430px) {
+  .myPost {
+    width: 95%;
+  }
+}

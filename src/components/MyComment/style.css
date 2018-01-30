@@ -1,0 +1,18 @@
+.comment_nav {
+  border-bottom: 1px dashed #1971c2;
+  margin-bottom: 10px;
+}
+
+.comments_contents {
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #343a40;
+}
+
+.back_btn {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  top: 10px;
+}

@@ -1,0 +1,123 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  height: 270px;
+  background-color: white;
+  border-bottom: 5px solid green;
+  margin: 10px 10px;
+}
+
+.card:hover {
+  box-shadow: 0px 8px 8px #888888;
+  transition: all .3s ease-in-out;
+}
+
+.editView_btn {
+  font-size: 1.4rem;
+  color: black;
+  position: relative;
+  right: 13px;
+  margin-left: auto;
+}
+
+.blank {
+  height: 2.2rem;
+}
+
+.photo {
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.card_title {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: rgba(0,0,0,0.6);
+  font-weight: 550;
+  font-size: 1.1rem;
+}
+
+.card_contents {
+  max-width: 90%;
+  overflow: hidden;
+  color: rgba(0,0,0,0.5);
+  max-height: 20px;
+  text-align: center;
+}
+
+.card_footer {
+  margin-top: 10px;
+  width: 90%;
+  display: flex;
+}
+
+.counter {
+  width: 100px;
+  font-size: 0.9rem;
+  color: #748ffc;
+}
+
+.card_date {
+  color: #7a7a7a;
+  font-size: 0.9rem;
+  margin-left: auto;
+}
+
+.modal {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.comment_btn {
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  text-decoration: none;
+  background-color: #d65050;
+  color: white;
+  font-weight: 500;
+  margin-top: 10px;
+
+}
+
+.comment_btn:hover {
+  border: 1px solid #d65050;
+  background-color: #0000;
+  color: #d65050;
+  cursor: pointer;
+}
+
+.price {
+  width: 100px;
+  height: 17px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.pricelabel {
+  position: relative;
+  right: 80px;
+  display: flex;
+  align-items: center;
+  height: 25px;
+  line-height: 25px;
+}
+
+.comment_photo {
+  position: relative;
+  top: 10px;
+  right: 37px;
+
+}

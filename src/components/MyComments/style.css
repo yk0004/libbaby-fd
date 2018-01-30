@@ -1,0 +1,9 @@
+.comment_img {
+  margin-left: 2px;
+}
+
+@media screen and (max-width: 430px) {
+  .comment_img {
+    margin-bottom: 2px;
+  }
+}
