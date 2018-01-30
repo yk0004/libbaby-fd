@@ -26,7 +26,7 @@ import {
 } from './ActionTypes';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
-let server_url = 'https://baby-mall.herokuapp.com/';
+let server_url = process.env.REACT_APP_SERVER_URI;
 
 export const memoPostRequest = (title, contents) => {
   return (dispatch) => {

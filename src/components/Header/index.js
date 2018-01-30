@@ -5,7 +5,7 @@ import Menu from 'antd/lib/menu';
 import Dropdown from 'antd/lib/dropdown';
 import PostForm from '../Form';
 
-let server_url = 'https://baby-mall.herokuapp.com/';
+let server_url = process.env.REACT_APP_SERVER_URI;
 
 class Header extends Component {
 

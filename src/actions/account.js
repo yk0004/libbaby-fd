@@ -6,7 +6,7 @@ import {
   LOGOUT
 } from './ActionTypes';
 axios.defaults.withCredentials = true;
-let server_url = 'https://baby-mall.herokuapp.com/';
+let server_url = process.env.REACT_APP_SERVER_URI;
 
 export const getStatusRequest = () => {
   return (dispatch) => {
