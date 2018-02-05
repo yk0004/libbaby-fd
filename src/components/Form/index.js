@@ -28,7 +28,6 @@ class PostForm extends Component {
   handlePreviewCancel = () => this.setState({ previewVisible: false });
 
   handlePreview = (file) => {
-    console.log(file)
     this.setState({
       previewImage: file.url || file.thumbUrl,
       previewVisible: true,
@@ -43,14 +42,12 @@ class PostForm extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
         if(this.props.mode === "post") {
           this.props.onPost(values.title, values.contents);
         } else if(this.props.mode === "edit") {
           const { onEdit, id, index } = this.props;
           onEdit(id, index, values.title, values.contents)
         } else {
-          console.log("commet posst")
           const { onComment, id } = this.props;
           onComment(id, values.contents, values.price, this.state.fileList );
         }

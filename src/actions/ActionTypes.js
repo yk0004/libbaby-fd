@@ -1,6 +1,3 @@
-// export const LOGIN = 'LOGIN';
-// export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-// export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const GET_STATUS = 'GET_STATUS';
 export const GET_STATUS_SUCCESS = 'GET_STATUS_SUCCESS';
 export const GET_STATUS_FAILURE = 'GET_STATUS_FAILURE';

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import List from 'antd/lib/list';
 import './style.css';
+const storage_url = process.env.REACT_APP_STORAGE_URI;
 
 class MyComments extends Component {
 
@@ -29,7 +30,7 @@ class MyComments extends Component {
               key={item.date}
               extra={
                 item.photo.map((photo,i)=> {
-                  return (<img className="comment_img" key={i} src={`https://storage.googleapis.com/libbaby/${photo}`} width={120} height={120} alt="commentPhoto"/>)
+                  return (<img className="comment_img" key={i} src={storage_url+photo} width={120} height={120} alt="commentPhoto"/>)
                 })
                 }
             >

@@ -26,7 +26,7 @@ import {
 } from './ActionTypes';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
-let server_url = process.env.REACT_APP_SERVER_URI;
+const server_url = process.env.REACT_APP_SERVER_URI;
 
 export const memoPostRequest = (title, contents) => {
   return (dispatch) => {
@@ -34,10 +34,9 @@ export const memoPostRequest = (title, contents) => {
 
     return axios.post(`${server_url}post`, {title, contents})
     .then((response) => {
-      console.log("axios");
       dispatch(memoPostSuccess());
     }).catch((error) => {
-      dispatch(memoPostFailure(error.response.code));
+      dispatch(memoPostFailure(error.data.code));
     });
   };
 }
@@ -64,7 +63,6 @@ export const memoPostFailure = (error) => {
 export const memoListRequest = (Latest, username) => {
   return (dispatch) => {
     dispatch(memoList());
-    console.log(username);
     let url = `${server_url}post`;
 
     if(Latest) {
@@ -72,7 +70,7 @@ export const memoListRequest = (Latest, username) => {
     } else if(typeof username !== "undefined") {
       url = `${url}/${username}`;
     }
-    console.log(url);
+
     return axios.get(url)
     .then((response) => {
       dispatch(memoListSuccess(response.data));
@@ -109,7 +107,7 @@ export const memoEditRequest = (id, index, title, contents) => {
     .then((response) => {
       dispatch(memoEditSuccess(index, response.data.memo));
     }).catch((error) => {
-      dispatch(memoEditFailure(error.response));
+      dispatch(memoEditFailure(error.data));
     });
   };
 }
@@ -143,7 +141,7 @@ export const memoRemoveRequest = (id, index) => {
     .then((response) => {
       dispatch(memoRemoveSuccess(index));
     }).catch((error) => {
-      dispatch(memoRemoveFailure(error.response.data.code));
+      dispatch(memoRemoveFailure(error.data.code));
     });
   };
 }
@@ -214,7 +212,7 @@ export const commentPostRequest = (id, memo, price, files) => {
     return axios.put(`${server_url}comment/` + id, data)
     .then((response) => {
     }).catch((error) => {
-      dispatch(commentPostFailure(error.response));
+      dispatch(commentPostFailure(error));
     });
   };
 }
@@ -246,7 +244,6 @@ export const getCommentRequest = (id) => {
     return axios.get(`${server_url}comment/` + id)
     .then((response) => {
       dispatch(getCommentSuccess(response.data));
-      console.log(response.data)
     }).catch((error) => {
       dispatch(getCommentFailure());
     });
@@ -279,7 +276,6 @@ export const getMyCommentRequest = (username) => {
     return axios.get(`${server_url}mycomment/` + username)
     .then((response) => {
       dispatch(getMyCommentSuccess(response.data));
-      console.log(response.data)
     }).catch((error) => {
       dispatch(getMyCommentFailure());
     });

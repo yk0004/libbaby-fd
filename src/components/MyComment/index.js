@@ -6,6 +6,7 @@ import Button from 'antd/lib/button';
 import { Link } from 'react-router-dom';
 import Modal from 'antd/lib/modal';
 
+const storage_url = process.env.REACT_APP_STORAGE_URI;
 const IconText = ({ type, text }) => (
   <span>
     <Icon type={type} style={{ marginRight: 8 }} />
@@ -22,14 +23,12 @@ class MyComment extends Component {
       visible: true,
     });
   }
-  handleOk = (e) => {
-    console.log(e);
+  handleOk = () => {
     this.setState({
       visible: false,
     });
   }
-  handleCancel = (e) => {
-    console.log(e);
+  handleCancel = () => {
     this.setState({
       visible: false,
     });
@@ -59,7 +58,7 @@ class MyComment extends Component {
                 actions={[<a onClick={this.showModal}><IconText type="like-o" text="0" /></a>]}
                 extra={
                   item.photo.map((photo,i)=> {
-                    return (<img className="comment_img" key={i} src={`https://storage.googleapis.com/libbaby/${photo}`} width={120} height={120} alt="commentPhoto"/>)
+                    return (<img className="comment_img" key={i} src={storage_url+photo} width={120} height={120} alt="commentPhoto"/>)
                   })
                   }
               >

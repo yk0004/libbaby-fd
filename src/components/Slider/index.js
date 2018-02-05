@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-let server_url = process.env.REACT_APP_SERVER_URI;
+const server_url = process.env.REACT_APP_SERVER_URI;
 
 class Slider extends Component {
 

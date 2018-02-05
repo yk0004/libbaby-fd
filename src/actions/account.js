@@ -6,7 +6,7 @@ import {
   LOGOUT
 } from './ActionTypes';
 axios.defaults.withCredentials = true;
-let server_url = process.env.REACT_APP_SERVER_URI;
+const server_url = process.env.REACT_APP_SERVER_URI;
 
 export const getStatusRequest = () => {
   return (dispatch) => {
@@ -14,11 +14,11 @@ export const getStatusRequest = () => {
 
     return axios.get(`${server_url}getstatus`)
       .then((response) => {
-        console.log(response.data.user);
-        if(response.data.user) {
-          dispatch(getStatusSuccess(true, response.data.user.profile.name, response.data.user.profile.picture, response.data.user.facebook));
+        const { user } = response.data;
+        if(user) {
+          dispatch(getStatusSuccess(true, user.profile.name, user.profile.picture, user.facebook));
         } else {
-          dispatch(getStatusSuccess(false, response.data.user));
+          dispatch(getStatusSuccess(false, user));
         }
       }).catch((error) => {
         dispatch(getStatusFailure());
