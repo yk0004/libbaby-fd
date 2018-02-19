@@ -9,10 +9,9 @@ import { memoListRequest, memoPostRequest, memoEditRequest, memoRemoveRequest, c
 class Home extends Component {
 
   componentDidMount(){
-    this.props.getStatusRequest().then(() => {
-      window.scrollTo(0, 0);
-    });
-    this.props.memoListRequest(true);  
+    this.props.getStatusRequest();
+    this.props.memoListRequest(true);
+    window.scrollTo(0, 0);  
   }
 
   render() {
