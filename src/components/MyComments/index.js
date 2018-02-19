@@ -6,14 +6,9 @@ const storage_url = process.env.REACT_APP_STORAGE_URI;
 class MyComments extends Component {
 
   render() {
-    const comments = this.props.data.map((data,i) => {
-      if(data.name !== this.props.username) {
-        return;
-      }
-      return data;
-    });
-
-
+    const comments = this.props.data.filter(data => data.name === this.props.username)
+    .map(lists => lists);
+    
     return (
       <List
         itemLayout="vertical"
