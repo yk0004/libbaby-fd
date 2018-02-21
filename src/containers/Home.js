@@ -7,7 +7,7 @@ import { getStatusRequest, logoutRequest } from '../actions/account';
 import { memoListRequest, memoPostRequest, memoEditRequest, memoRemoveRequest, commentPostRequest } from '../actions/memo';
 
 class Home extends Component {
-
+  
   componentDidMount(){
     this.props.getStatusRequest();
     this.props.memoListRequest(true);
