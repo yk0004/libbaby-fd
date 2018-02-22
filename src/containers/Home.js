@@ -5,17 +5,23 @@ import Slider from '../components/Slider';
 import MemoList from '../components/MemoList';
 import { getStatusRequest, logoutRequest } from '../actions/account';
 import { memoListRequest, memoPostRequest, memoEditRequest, memoRemoveRequest, commentPostRequest } from '../actions/memo';
+import Modal from 'antd/lib/modal';
 
 class Home extends Component {
-  
+
+  handleOk = () => {
+    this.props.history.push('/');
+  }
+
   componentDidMount(){
     this.props.getStatusRequest();
     this.props.memoListRequest(true);
-    window.scrollTo(0, 0);  
+    window.scrollTo(0, 0);
   }
 
   render() {
     const { isLoggedIn, username, userPicture, currentUser, logoutRequest, data, memoPostRequest, memoEditRequest, memoRemoveRequest, commentPostRequest } = this.props;
+    const { pathname } = this.props.history.location;
     return (
       <div>
         <Header
@@ -33,6 +39,13 @@ class Home extends Component {
           onRemove={memoRemoveRequest}
           onComment={commentPostRequest}
         />
+        <Modal
+          title="로그인"
+          visible={pathname === '/login'}
+          onOk={this.handleOk}
+        >
+          <p>성공</p>
+        </Modal>
       </div>
     );
   }

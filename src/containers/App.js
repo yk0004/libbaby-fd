@@ -9,6 +9,7 @@ const App = () => {
   return (
     <div>
       <Route exact path="/" component={Home}/>
+      <Route path="/login" component={Home}/>
       <Route path="/list" component={List}/>
       <Route path="/mypage" component={MyPage}/>
       <Route path="/buylist/:id" component={ByList}/>
