@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import MyList from '../components/MyList';
 import { getStatusRequest, logoutRequest } from '../actions/account';
 import { memoListRequest, memoPostRequest, getMyCommentRequest } from '../actions/memo';
+import Cookies from 'js-cookie';
 
 class MyPage extends Component {
 
@@ -15,8 +16,13 @@ class MyPage extends Component {
     })
   }
 
+  handleLogout = () => {
+    this.props.logoutRequest();
+    Cookies.remove('key');
+  }
+
   render() {
-      const { isLoggedIn, username, userPicture, memoPostRequest, logoutRequest, data, mycomment, currentUser } = this.props;
+      const { isLoggedIn, username, userPicture, memoPostRequest, data, mycomment, currentUser } = this.props;
     return (
       <div>
         <Header
@@ -24,7 +30,7 @@ class MyPage extends Component {
           username={username}
           userPicture={userPicture}
           onPost={memoPostRequest}
-          onLogout={logoutRequest}
+          onLogout={this.handleLogout}
         />
         <MyList
           data={data}

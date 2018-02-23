@@ -6,13 +6,18 @@ import { connect } from 'react-redux';
 import Modal from 'antd/lib/modal';
 import { getStatusRequest, logoutRequest } from '../actions/account';
 import { memoListRequest, memoPostRequest, memoEditRequest, memoRemoveRequest, memoSearchRequest, commentPostRequest } from '../actions/memo';
+import Cookies from 'js-cookie';
 
 class List extends Component {
 
   componentDidMount(){
-    this.props.getStatusRequest();
-    this.props.memoListRequest(false);
     window.scrollTo(0, 0);
+    this.props.memoListRequest(false);
+    let loginData = Cookies.get('key');
+    if(typeof loginData === "undefined") return;
+    loginData = JSON.parse(atob(loginData));
+    if(!loginData.isLoggedIn) return;
+    this.props.getStatusRequest();
   }
 
   handleSearch = (keyword) => {
@@ -30,8 +35,13 @@ class List extends Component {
     })
   }
 
+  handleLogout = () => {
+    this.props.logoutRequest();
+    Cookies.remove('key');
+  }
+
   render() {
-    const { isLoggedIn, username, userPicture, currentUser, logoutRequest, data, memoPostRequest, memoEditRequest, memoRemoveRequest, commentPostRequest } = this.props;
+    const { isLoggedIn, username, userPicture, currentUser, data, memoPostRequest, memoEditRequest, memoRemoveRequest, commentPostRequest } = this.props;
     return (
       <div>
         <Header
@@ -39,7 +49,7 @@ class List extends Component {
           username={username}
           userPicture={userPicture}
           onPost={memoPostRequest}
-          onLogout={logoutRequest}
+          onLogout={this.handleLogout}
         />
         <Search onSearch={this.handleSearch} />
         <PostList

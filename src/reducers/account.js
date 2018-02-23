@@ -14,7 +14,7 @@ const account = (state = initialState, action) => {
     case types.GET_STATUS:
       return update(state, {
         getStatus: { $set: 'WAITING'},
-        isLoggedIn: { $set: false }
+        isLoggedIn: { $set: true }
       });
     case types.GET_STATUS_SUCCESS:
       return update(state, {

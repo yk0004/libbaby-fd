@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import MyComment from '../components/MyComment';
 import { getStatusRequest, logoutRequest } from '../actions/account';
 import { memoPostRequest, getCommentRequest } from '../actions/memo';
+import Cookies from 'js-cookie';
 
 class ByList extends Component {
 
@@ -14,8 +15,13 @@ class ByList extends Component {
     })
   }
 
+  handleLogout = () => {
+    this.props.logoutRequest();
+    Cookies.remove('key');
+  }
+
   render() {
-      const { isLoggedIn, username, userPicture, memoPostRequest, logoutRequest, data } = this.props;
+      const { isLoggedIn, username, userPicture, memoPostRequest, data } = this.props;
     return (
       <div>
         <Header
@@ -23,7 +29,7 @@ class ByList extends Component {
           username={username}
           userPicture={userPicture}
           onPost={memoPostRequest}
-          onLogout={logoutRequest}
+          onLogout={this.handleLogout}
         />
         <MyComment
           data={data}
