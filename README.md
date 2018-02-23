@@ -2,6 +2,8 @@
 
 > Used baby goods trade mall
 
+![intro](./src/media/libbaby-final.gif)
+
 ## Stack
 
 ### Frontend

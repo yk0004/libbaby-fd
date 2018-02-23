@@ -10,7 +10,6 @@ import Cookies from 'js-cookie';
 
 class Home extends Component {
 
-
   handleOk = () => {
     let loginData = {
                       isLoggedIn: true,
