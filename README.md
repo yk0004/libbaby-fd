@@ -2,7 +2,7 @@
 
 > Used baby goods trade mall
 
-![intro](./src/media/libbaby-final.gif)
+![intro](https://storage.googleapis.com/media_data/libbaby-final.gif)
 
 ## Stack
 
@@ -29,7 +29,8 @@ API Server URI use environment variables in .env file.
 ```
 $ git clone https://github.com/yk0004/libbaby-fd.git
 $ cd libbaby-fd
-$ npm Installation
+$ npm install
 $ mv .env.example .env
  - Server url environment variable
+$ npm run start
 ```
