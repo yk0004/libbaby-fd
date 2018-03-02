@@ -54,6 +54,7 @@ class Home extends Component {
           onEdit={memoEditRequest}
           onRemove={memoRemoveRequest}
           onComment={commentPostRequest}
+          isLoggedIn={isLoggedIn}
         />
         <Modal
           title="알림"

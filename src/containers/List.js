@@ -58,6 +58,7 @@ class List extends Component {
           onEdit={memoEditRequest}
           onRemove={memoRemoveRequest}
           onComment={commentPostRequest}
+          isLoggedIn={isLoggedIn}
         />
       </div>
     );

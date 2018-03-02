@@ -50,12 +50,16 @@ class Memo extends Component {
   }
 
   handleCommentView = () => {
-    this.setState({
-      mode: "comment",
-      visible: true,
-      contents: '',
-      card_title: '물품판매'
-    });
+    if(this.props.isLoggedIn) {
+      this.setState({
+        mode: "comment",
+        visible: true,
+        contents: '',
+        card_title: '물품판매'
+      });
+    } else {
+      alert("로그인 후 이용하세요.");
+    }
   }
 
   handleComment = (id, memo, price, file) => {

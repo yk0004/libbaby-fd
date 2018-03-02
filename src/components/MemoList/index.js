@@ -6,7 +6,7 @@ import { CSSTransitionGroup } from 'react-transition-group'
 class MemoList extends Component {
 
   render() {
-    const { currentUser, data, onEdit, onRemove, onComment } = this.props;
+    const { currentUser, data, onEdit, onRemove, onComment, isLoggedIn } = this.props;
     const memoView = data.map((memo, i) => {
       return (<Memo
         data={memo}
@@ -16,6 +16,7 @@ class MemoList extends Component {
         onEdit={onEdit}
         onRemove={onRemove}
         onComment={onComment}
+        isLoggedIn={isLoggedIn}
       />);
     });
 
