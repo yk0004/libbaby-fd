@@ -67,7 +67,7 @@ class PostList extends Component {
       });
     } else {
       alert("로그인 후 이용하세요.");
-    }    
+    }
   }
 
   handleComment = (id, memo, price, file) => {
@@ -80,7 +80,7 @@ class PostList extends Component {
   }
 
   render() {
-    const { currentUser, data } = this.props;
+    const { currentUser, data, isLoading } = this.props;
 
     return (
       <div className="myPost">
@@ -91,6 +91,7 @@ class PostList extends Component {
               itemLayout="horizonta"
               size="small"
               dataSource={data}
+              loading={isLoading}
               renderItem={(item, index) => {
                 const date = new Date(item.date.created);
                 const month = date.getMonth()+1;

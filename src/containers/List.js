@@ -10,9 +10,20 @@ import Cookies from 'js-cookie';
 
 class List extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    };
+  }
+
   componentDidMount(){
     window.scrollTo(0, 0);
-    this.props.memoListRequest(false);
+    this.props.memoListRequest(false).then(()=>{
+      this.setState({
+        isLoading: false
+      })
+    })
     let loginData = Cookies.get('key');
     if(typeof loginData === "undefined") return;
     loginData = JSON.parse(atob(loginData));
@@ -59,6 +70,7 @@ class List extends Component {
           onRemove={memoRemoveRequest}
           onComment={commentPostRequest}
           isLoggedIn={isLoggedIn}
+          isLoading={this.state.isLoading}
         />
       </div>
     );
