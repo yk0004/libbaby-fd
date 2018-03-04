@@ -14,9 +14,9 @@ const IconText = ({ type, text }) => (
 class MyList extends Component {
 
   render() {
-    const { data, comment, currentUser } = this.props;
+    const { data, comment, currentUser, isLoading } = this.props;
     const mycomment = comment.map((data,i) => {
-        return (<MyComments key={i} data={data.comments} username={currentUser}/>)
+        return (<MyComments key={i} data={data.comments} username={currentUser} isLoading={isLoading}/>)
 
     })
 
@@ -29,6 +29,7 @@ class MyList extends Component {
               itemLayout="horizontal"
               size="small"
               dataSource={data}
+              loading={isLoading}
               renderItem={item => {
                 const date = new Date(item.date.created);
                 const month = date.getMonth()+1;

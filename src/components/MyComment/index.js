@@ -35,7 +35,7 @@ class MyComment extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, isLoading } = this.props;
 
     return (
       <div className="myList">
@@ -46,6 +46,7 @@ class MyComment extends Component {
           itemLayout="vertical"
           size="small"
           dataSource={data.comments}
+          loading={isLoading}
           renderItem={item => {
             const date = new Date(item.date);
             const month = date.getMonth()+1;

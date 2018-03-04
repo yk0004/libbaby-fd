@@ -8,12 +8,13 @@ class MyComments extends Component {
   render() {
     const comments = this.props.data.filter(data => data.name === this.props.username)
     .map(lists => lists);
-    
+
     return (
       <List
         itemLayout="vertical"
         size="small"
         dataSource={comments}
+        loading={this.props.isLoading}
         renderItem={item => {
           const date = new Date(item.date);
           const month = date.getMonth()+1;

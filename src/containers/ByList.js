@@ -8,10 +8,22 @@ import Cookies from 'js-cookie';
 
 class ByList extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    };
+  }
+
   componentDidMount(){
+    window.scrollTo(0, 0);
     this.props.getStatusRequest().then(()=> {
-      this.props.getCommentRequest(this.props.match.params.id);
-      window.scrollTo(0, 0);
+      this.props.getCommentRequest(this.props.match.params.id).then(()=>{
+        this.setState({
+          isLoading: false
+        });
+      })
+
     })
   }
 
@@ -33,6 +45,7 @@ class ByList extends Component {
         />
         <MyComment
           data={data}
+          isLoading={this.state.isLoading}
         />
       </div>
     );

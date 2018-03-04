@@ -8,11 +8,22 @@ import Cookies from 'js-cookie';
 
 class MyPage extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    };
+  }
+
   componentDidMount(){
+    window.scrollTo(0, 0);
     this.props.getStatusRequest().then(()=>{
       this.props.memoListRequest(false, this.props.currentUser);
-      this.props.getMyCommentRequest(this.props.currentUser);
-      window.scrollTo(0, 0);
+      this.props.getMyCommentRequest(this.props.currentUser).then(()=> {
+        this.setState({
+          isLoading: false
+        });
+      })
     })
   }
 
@@ -36,6 +47,7 @@ class MyPage extends Component {
           data={data}
           comment={mycomment}
           currentUser={currentUser}
+          isLoading={this.state.isLoading}
         />
       </div>
     );
