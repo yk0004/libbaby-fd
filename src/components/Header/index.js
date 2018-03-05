@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './style.css';
 import Menu from 'antd/lib/menu';
 import Dropdown from 'antd/lib/dropdown';
+import Spin from 'antd/lib/spin';
 import PostForm from '../Form';
 
 const server_url = process.env.REACT_APP_SERVER_URI;
@@ -38,7 +39,7 @@ class Header extends Component {
   }
 
   render(){
-    const { isLoggedIn, username, userPicture, onLogout } = this.props;
+    const { isLoggedIn, username, userPicture, onLogout, isLoading } = this.props;
     const loginView = <a href={`${server_url}auth/facebook`} className="login">Facebook Login</a>;
     const userMenuView = (
       <Menu>
@@ -52,14 +53,19 @@ class Header extends Component {
       </Menu>
     );
     const userView = (
-      <Dropdown overlay={userMenuView} trigger={['click']} placement="bottomCenter" >
-        <div className="userInfo">
-          <img src={userPicture} className="userPicture" alt="userpicture" />
-          <span className="userName">{username}</span>
-          <span className="userMenuBar">&#9660;</span>
-        </div>
-      </Dropdown>
+        <Dropdown overlay={userMenuView} trigger={['click']} placement="bottomCenter" >
+          <div className="userInfo">
+            <img src={userPicture} className="userPicture" alt="userpicture" />
+            <span className="userName">{username}</span>
+            <span className="userMenuBar">&#9660;</span>
+          </div>
+        </Dropdown>
     );
+    const loadingView = (
+      <div className="userInfo">
+        <Spin spinning={isLoading}></Spin>
+      </div>
+    )
     const writeView = <a onClick={this.handlePopup} className="menu">물품요청</a>;
 
     return(
@@ -68,7 +74,7 @@ class Header extends Component {
         <div className="rightbar">
           <Link to="/list" className="menu">물품리스트</Link>
           {isLoggedIn? writeView : undefined }
-          {isLoggedIn? userView : loginView }
+          {isLoggedIn? (isLoading? loadingView : userView) : loginView }
         </div>
         <PostForm
           mode="post"

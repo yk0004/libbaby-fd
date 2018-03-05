@@ -42,6 +42,7 @@ class ByList extends Component {
           userPicture={userPicture}
           onPost={memoPostRequest}
           onLogout={this.handleLogout}
+          isLoading={this.state.isLoading}
         />
         <MyComment
           data={data}

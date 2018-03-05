@@ -10,6 +10,13 @@ import Cookies from 'js-cookie';
 
 class Home extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    };
+  }
+
   handleOk = () => {
     let loginData = {
                       isLoggedIn: true,
@@ -31,7 +38,11 @@ class Home extends Component {
     if(typeof loginData === "undefined") return;
     loginData = JSON.parse(atob(loginData));
     if(!loginData.isLoggedIn) return;
-    this.props.getStatusRequest();
+    this.props.getStatusRequest().then(()=> {
+      this.setState({
+        isLoading: false
+      });
+    })
   }
 
   render() {
@@ -46,6 +57,7 @@ class Home extends Component {
           userPicture={userPicture}
           onPost={memoPostRequest}
           onLogout={this.handleLogout}
+          isLoading={this.state.isLoading}
         />
         <Slider isLoggedIn={isLoggedIn}/>
         <MemoList

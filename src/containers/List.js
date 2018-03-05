@@ -61,6 +61,7 @@ class List extends Component {
           userPicture={userPicture}
           onPost={memoPostRequest}
           onLogout={this.handleLogout}
+          isLoading={this.state.isLoading}
         />
         <Search onSearch={this.handleSearch} />
         <PostList
