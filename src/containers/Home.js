@@ -47,7 +47,7 @@ class Home extends Component {
 
   render() {
     const { isLoggedIn, username, userPicture, currentUser, data, memoPostRequest, memoEditRequest, memoRemoveRequest, commentPostRequest } = this.props;
-    const { pathname } = this.props.history.location;
+    const { pathname } = this.props.location;
     let loginState = (pathname === '/login');
     return (
       <div>
